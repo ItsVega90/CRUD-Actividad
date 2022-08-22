@@ -7,8 +7,9 @@ if (isset($_POST['submit'])) {
     $nom = $_POST['nombre'];
     $ape = $_POST['apellido'];
     $fechan = $_POST['fechan'];
+    $gener = $_POST['genero'];
 
-    $sql = "INSERT INTO datos (identificacion, nombre, apellido, fechan) VALUES('$iden','$nom','$ape','$fechan')";
+    $sql = "INSERT INTO datos (identificacion, nombre, apellido, fechan, genero) VALUES('$iden','$nom','$ape','$fechan','$gener')";
     $result = mysqli_query($con, $sql);
     if ($result) {
         header('location: display.php');
@@ -53,6 +54,15 @@ if (isset($_POST['submit'])) {
                     <div class="form-group">
                         <label class="form-label">Fecha de nacimiento</label>
                         <input type="text" class="form-control" placeholder="Ingrese su fecha de nacimiento" name="fechan">
+                    </div>
+                    <br>
+                    <div>
+                        <label class="form-label">Genero</label>
+                        <select class="form-select" name="genero" id="genero" onchange="mostrar(this);">
+                            <option id="0" value="0">Seleccionar...</option>
+                            <option id="1" value="Femenino">Femenino</option>
+                            <option id="2" value="Masculino">Masculino</option>
+                        </select>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary" name="submit">Guardar</button>

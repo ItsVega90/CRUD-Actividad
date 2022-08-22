@@ -9,6 +9,7 @@ $iden = $row['identificacion'];
 $nom = $row['nombre'];
 $ape = $row['apellido'];
 $fechan = $row['fechan'];
+$gener = $row['genero'];
 
 if (isset($_POST['submit'])) {
 
@@ -16,8 +17,9 @@ if (isset($_POST['submit'])) {
     $nom = $_POST['nombre'];
     $ape = $_POST['apellido'];
     $fechan = $_POST['fechan'];
+    $gener = $_POST['genero'];
 
-    $sql = "UPDATE datos SET id=$id,identificacion=$iden,nombre='$nom',apellido='$ape',fechan='$fechan' WHERE id=$id";
+    $sql = "UPDATE datos SET id=$id,identificacion=$iden,nombre='$nom',apellido='$ape',fechan='$fechan',genero='$gener' WHERE id=$id";
     $result = mysqli_query($con, $sql);
     if ($result) {
         header('location: display.php');
@@ -63,6 +65,15 @@ if (isset($_POST['submit'])) {
                         <label class="form-label">Fecha de nacimiento</label>
                         <input type="text" class="form-control" placeholder="Ingrese su fecha de nacimiento" name="fechan" value=<?php echo $fechan ?>>
                     </div>
+                    <br>
+                    <div>
+                            <label class="form-label">Genero</label>
+                            <select class="form-select" name="genero" id="genero" onchange="mostrar(this);">
+                                <option id="0" value="0">Seleccionar...</option>
+                                <option id="1" value="Femenino">Femenino</option>
+                                <option id="2" value="Masculino">Masculino</option>
+                            </select>
+                        </div>
                     <br>
                     <button type="submit" class="btn btn-primary" name="submit">Actualizar</button>
                 </form>

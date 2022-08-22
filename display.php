@@ -25,6 +25,7 @@ include 'connect.php';
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
                         <th scope="col">Fecha de nacimiento</th>
+                        <th scope="col">Genero</th>
                         <th scope="col">Accion</th>
                 </thead>
                 <?php
@@ -37,12 +38,14 @@ include 'connect.php';
                         $nomb = $row['nombre'];
                         $apell = $row['apellido'];
                         $fechan = $row['fechan'];
+                        $gener=$row['genero'];
                         echo '
                     <th scope="row">' . $id . '</th>
                     <td>' . $ident . '</td>
                     <td>' . $nomb . '</td>
                     <td>' . $apell . '</td>
                     <td>' . $fechan . '</td>
+                    <td>' . $gener . '</td>
                     <td>
                     <button class="btn btn-primary"><a href="update.php?updateid=' . $id . '" class="text-light">Actualizar</a></button>
                     <button class="btn btn-danger"><a href="delete.php?deleteid=' . $id . '" class="text-light">Borrar</a></button>
